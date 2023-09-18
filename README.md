@@ -1,1 +1,1 @@
-readme
+print "readme"
