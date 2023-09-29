@@ -2,5 +2,5 @@
 # Loop through the files in the current directory (excluding hidden files)
 for file in *
 do 
-ls -l $file
+ls "$file"
 done
