@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays the time for 12 hours and 59 minutes:display hours from 0 to 12,display minutes from 1 to 59
+for ((i=0; i<=12; i++))
+do
+echo -e "Hour: $i"
+  for ((j=1; j<=59; j++))
+    do
+     echo "$j" 
+    done
+done
+
