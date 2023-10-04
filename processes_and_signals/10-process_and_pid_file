@@ -16,4 +16,4 @@ handle_sigquit()
 rm -r /var/run/myscript.pid
 pkill -9 -f "$$"
 }
-trap "handle_sigquit" SIGQUIT
+trap "handle_sigquit" SIGQUIT SIGTERM
