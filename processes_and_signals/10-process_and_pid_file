@@ -9,11 +9,11 @@ while :
 do 
 echo "To infinity and beyond"
 done
-trap "I hate to kill" SIGTERM
+trap "I hate the kill command" SIGTERM
 trap "Y U no love me ?!" SIGINT
 handle_sigquit()
 {
-rm /var/run/myscript.pid
+rm -r /var/run/myscript.pid
 pkill -9 -f "$$"
 }
 trap 'handle_sigquit' SIGQUIT
