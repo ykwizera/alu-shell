@@ -13,7 +13,9 @@ echo "To infinity and beyond"
 done
 handle_sigquit()
 {
-rm  /var/run/myscript.pid
-pkill -9 -f "$$"
+	if [ -e "/var/run/myscript.pid" ]; then
+  rm "/var/run/myscript.pid"
+	fi
+pkill -9 -f "10-process_and_pid_file"
 }
 trap "handle_sigquit" SIGQUIT SIGTERM
