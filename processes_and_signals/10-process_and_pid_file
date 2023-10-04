@@ -7,15 +7,13 @@
 echo "$$" > /var/run/myscript.pid 
 trap "echo 'I hate the kill command'" SIGTERM
 trap "echo 'Y U no love me ?!'" SIGINT
-while :
-do 
-echo "To infinity and beyond"
-done
 handle_sigquit()
 {
-	if [ -e "/var/run/myscript.pid" ]; then
-  rm "/var/run/myscript.pid"
-	fi
+  rm -f "/var/run/myscript.pid"
 pkill -9 -f "10-process_and_pid_file"
 }
-trap "handle_sigquit" SIGQUIT SIGTERM
+trap 'handle_sigquit' SIGQUIT SIGTERM
+while :
+do
+echo "To infinity and beyond"
+done
