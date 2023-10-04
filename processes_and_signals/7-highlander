@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #print I am invincible!!! when receiving a SIGTERM signal
-handle_kill() {
+handle_SIGTERM() {
   echo "I am invincible!!!"
   exit 0
 }
-trap 'handle_kill' kill
+trap 'handle_SIGTERM' SIGTERM
 while :
 do 
 echo "To infinity and beyond"
