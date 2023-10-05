@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 #managing file manage_my_process
 pidfile="/var/run/my_process.pid"
+manageprocess="/alu-shell/processes_and_signals/manage_my_process"
 start (){
-sudo systemctl start manage_my_process
+$manageprocess start 
 echo "$$" > "$pidfile"
 echo 'manage_my_process started'
 }
 stop (){
-sudo systemctl stop manage_my_process
+$manageprocess stop 
 rm "$pidfile"
 echo 'manage_my_process stopped'
 }
 restart (){
-sudo systemctl stop manage_my_process
+$manageprocess stop 
 rm "$pidfile"
-sudo systemctl start manage_my_process
+$manageprocess start 
 echo "$$" > "$pidfile"
 echo 'manage_my_process restarted'
 }
