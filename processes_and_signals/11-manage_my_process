@@ -6,14 +6,12 @@ start (){
 	if [ -f "$pidfile" ]; then
 $manageprocess start 
 echo "$$" > "$pidfile"
-echo 'manage_my_process started'
 	fi
 }
 stop (){
 	if [ -f "$pidfile" ]; then
 $manageprocess stop 
 rm "$pidfile"
-echo 'manage_my_process stopped'
 	fi
 }
 restart (){
@@ -23,17 +21,19 @@ rm "$pidfile"
 	fi
 $manageprocess start 
 echo "$$" > "$pidfile"
-echo 'manage_my_process restarted'
 }
-case "$1" in 
+case "$1" if [ -f "$pidfile" ]; thenin 
 	start)
 		start
+	 echo 'manage_my_process started'
 		;;
 	stop)
 		stop
+		echo 'manage_my_process stopped'
 		;;
 	restart)
 		restart
+	 echo 'manage_my_process restarted'
 		;;
 	*)
 		echo 'Usage: manage_my_process {start|stop|restart}'
