@@ -4,9 +4,11 @@ pidfile="/var/run/my_process.pid"
 manageprocess="/alu-shell/processes_and_signals/manage_my_process"
 start (){
 	if [ -f "$pidfile" ]; then
-$manageprocess start 
-echo "$$" > "$pidfile"
-	fi
+        echo "PID: $(cat $pidfile)"
+    else
+        $manageprocess start
+        echo "manage_my_process started"
+    fi
 }
 stop (){
 	if [ -f "$pidfile" ]; then
