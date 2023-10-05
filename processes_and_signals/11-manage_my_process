@@ -7,7 +7,6 @@ start (){
         echo "PID: $(cat $pidfile)"
     else
         $manageprocess start
-        echo "manage_my_process started"
     fi
 }
 stop (){
