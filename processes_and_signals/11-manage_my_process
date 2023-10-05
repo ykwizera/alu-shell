@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 #managing file manage_my_process
+pidfile="/var/run/my_process.pid"
 start (){
 sudo systemctl start manage_my_process
-echo "$$" > /var/run/my_process.pid
+echo "$$" > "$pidfile"
 echo 'manage_my_process started'
 }
 stop (){
 sudo systemctl stop manage_my_process
-rm -f /var/run/my_process.pid
+rm "$pidfile"
 echo 'manage_my_process stopped'
 }
 restart (){
 sudo systemctl stop manage_my_process
-rm -p /var/run/my_process.pid
+rm "$pidfile"
 sudo systemctl start manage_my_process
-echo "$$" > /var/run/my_process.pid
+echo "$$" > "$pidfile"
 echo 'manage_my_process restarted'
 }
 case "$1" in 
