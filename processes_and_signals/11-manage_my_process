@@ -22,7 +22,7 @@ rm "$pidfile"
 $manageprocess start 
 echo "$$" > "$pidfile"
 }
-case "$1" if [ -f "$pidfile" ]; thenin 
+case "$1" in 
 	start)
 		start
 	 echo 'manage_my_process started'
