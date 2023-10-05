@@ -17,11 +17,11 @@ sudo systemctl start manage_my_process
 echo "$$" > /var/run/my_process.pid
 echo "manage_my_process restarted"
 }
-if [ "$0" -eq 'start' ] then
+if [ "$0" -eq 'start' ]; then
         start
-elif [ "$0" -eq 'stop' ] then
+elif [ "$0" -eq 'stop' ]; then
         stop
-elif [ "$0" -eq 'restart' ] then
+elif [ "$0" -eq 'restart' ]; then
         restart
 else
         echo "Usage: manage_my_process {start|stop|restart}"
