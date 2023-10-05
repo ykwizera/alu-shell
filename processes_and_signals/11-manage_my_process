@@ -6,7 +6,7 @@ start (){
 	if [ -f "$pidfile" ]; then
         echo "PID: $(cat $pidfile)"
     else
-        $manageprocess start
+        $manageprocess start > /dev/null 2>&1
     fi
 }
 stop (){
