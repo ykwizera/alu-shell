@@ -12,7 +12,7 @@ echo 'manage_my_process stopped'
 }
 restart (){
 sudo systemctl stop manage_my_process
-rm -f /var/run/my_process.pid
+rm -p /var/run/my_process.pid
 sudo systemctl start manage_my_process
 echo "$$" > /var/run/my_process.pid
 echo 'manage_my_process restarted'
