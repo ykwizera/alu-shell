@@ -1,27 +1,18 @@
 #!/usr/bin/env bash
 #managing file manage_my_process
-pidfile="/var/run/my_process.pid"
-manageprocess="/alu-shell/processes_and_signals/manage_my_process"
 start (){
-	if [ -f "$pidfile" ]; then
-        echo "PID: $(cat $pidfile)"
-    else
-        .//alu-shell/processes_and_signals/manage_my_process &
-    fi
+ ./manage_my_process &
+ echo "$$" > /var/run/my_process.pid
 }
-stop (){
-	if [ -f "$pidfile" ]; then
-$manageprocess stop 
-rm "$pidfile"
-	fi
+stop () {
+pkill -f "./manage_my_process"
+    rm -rf /var/run/my_process.pid
 }
 restart (){
-	if [ -f "$pidfile" ]; then
-$manageprocess stop 
-rm "$pidfile"
-	fi
-$manageprocess start 
-echo "$$" > "$pidfile"
+	pkill -f "./manage_my_process"
+    rm -rf /var/run/my_process.pid
+     ./manage_my_process &
+ echo "$$" > /var/run/my_process.pid
 }
 case "$1" in 
 	start)
