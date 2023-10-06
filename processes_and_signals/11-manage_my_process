@@ -6,7 +6,7 @@ start (){
 	if [ -f "$pidfile" ]; then
         echo "PID: $(cat $pidfile)"
     else
-        $manageprocess start > /dev/null 2>&1
+        .//alu-shell/processes_and_signals/manage_my_process &
     fi
 }
 stop (){
